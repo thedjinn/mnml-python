@@ -5,10 +5,8 @@ from cStringIO import StringIO
 
 from node import Node
 
-# TODO: string escaping
-
 TAGNAME_REGEX = re.compile("[a-zA-Z_][a-zA-Z0-9_]*")
-ARGUMENT_REGEX = re.compile("\s+([a-zA-Z_][a-zA-Z0-9_]*)=([^\s\"]+|\"[^\"]*\")")
+ARGUMENT_REGEX = re.compile("\s+([a-zA-Z_][a-zA-Z0-9_]*)=([^\s\"]+|\"(?:\\\\\"|[^\"])*\")")
 HEREDOC_REGEX = re.compile("\s+->\s*$")
 
 def add_lookahead(iterable):
